@@ -34,7 +34,7 @@ public class GroupController {
 
         // Inserting the user record into the mongoDB database.
         GroupRepository groupRepository = new GroupRepository();
-        groupRepository.insert(groupEntity);
+        groupRepository.addNewGroupToDatabase(groupEntity);
 
         //Creating the response indicating the newly created user.
         CreateGroupResponse createGroupResponse = new CreateGroupResponse();

@@ -34,7 +34,7 @@ public class UserController {
 
         // Inserting the user record into the mongoDB database.
         UserRepository userRepository = new UserRepository();
-        userRepository.insert(userEntity);
+        userRepository.addNewUserToDatabase(userEntity);
 
         //Creating the response indicating the newly created user.
         CreateUserResponse createUserResponse = new CreateUserResponse();
