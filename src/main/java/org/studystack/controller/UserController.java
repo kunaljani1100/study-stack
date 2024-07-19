@@ -17,7 +17,7 @@ import org.studystack.model.CreateUserResponse;
 @EnableWebMvc
 @RestController
 @CrossOrigin
-public class StudyStackController {
+public class UserController {
 
     /**
      * Create a new user for the studystack application.
