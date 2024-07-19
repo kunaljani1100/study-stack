@@ -28,7 +28,9 @@ public class AddUserToGroupController {
         GroupRepository groupRepository = new GroupRepository();
         if (userRepository.checkIfUserExists(username)) {
             if (groupRepository.checkIfGroupExists(groupId)) {
-                response.setMessage("User and group found");
+                groupRepository.addUserToGroup(groupId, username);
+                userRepository.addGroupForUser(groupId, username);
+                response.setMessage("User added to group.");
             } else {
                 response.setMessage("User found but group not found.");
             }

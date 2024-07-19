@@ -5,7 +5,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.studystack.database.connector.DBConnector;
 import org.studystack.database.entity.GroupEntity;
-import org.studystack.database.entity.UserEntity;
 
 /**
  * This class performs the operations that are required to add a new studystack group into the database.
@@ -40,5 +39,21 @@ public class GroupRepository {
             groupExists = true;
         }
         return groupExists;
+    }
+
+    /**
+     * Add a user to the list of users for a group.
+     * @param groupId The group identifier for the user group that has been created.
+     * @param username The username that needs to be added to the database.
+     */
+    public void addUserToGroup(String groupId, String username) {
+        DBConnector dbConnector = new DBConnector();
+        dbConnector.connect("mongodb://localhost:27017");
+        MongoDatabase mongoDatabase = dbConnector.getMongoDatabase();
+        MongoCollection<GroupEntity> mongoCollection = mongoDatabase.getCollection("Groups", GroupEntity.class);
+        GroupEntity groupEntity = mongoCollection.find(Filters.eq("groupId", groupId), GroupEntity.class).first();
+        groupEntity.getUsernames().add(username);
+        mongoCollection.deleteOne(Filters.eq("groupId", groupId));
+        mongoCollection.insertOne(groupEntity);
     }
 }

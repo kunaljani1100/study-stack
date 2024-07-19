@@ -40,4 +40,20 @@ public class UserRepository {
         }
         return userExists;
     }
+
+    /**
+     * Add a group to the list of groups for which a user is a member.
+     * @param username The username that needs to be added to the database.
+     * @param groupId The group identifier for the user group that has been created.
+     */
+    public void addGroupForUser(String groupId, String username) {
+        DBConnector dbConnector = new DBConnector();
+        dbConnector.connect("mongodb://localhost:27017");
+        MongoDatabase mongoDatabase = dbConnector.getMongoDatabase();
+        MongoCollection<UserEntity> mongoCollection = mongoDatabase.getCollection("Users", UserEntity.class);
+        UserEntity userEntity = mongoCollection.find(Filters.eq("username", username), UserEntity.class).first();
+        userEntity.getGroups().add(groupId);
+        mongoCollection.deleteOne(Filters.eq("username", username));
+        mongoCollection.insertOne(userEntity);
+    }
 }

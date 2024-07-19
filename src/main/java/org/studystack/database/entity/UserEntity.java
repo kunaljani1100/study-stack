@@ -1,5 +1,7 @@
 package org.studystack.database.entity;
 
+import java.util.List;
+
 /**
  * This class specified the model for the user who is using the studystack application.
  */
@@ -54,6 +56,11 @@ public class UserEntity {
      * Indicates whether the user prefers to receive email notifications.
      */
     private Boolean emailIndicator;
+
+    /**
+     * Specifies the list of group IDs the user is a member of.
+     */
+    private List<String> groups;
 
     public String get_id() {
         return _id;
@@ -133,5 +140,13 @@ public class UserEntity {
 
     public void setEmailIndicator(Boolean emailIndicator) {
         this.emailIndicator = emailIndicator;
+    }
+
+    public List<String> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<String> groups) {
+        this.groups = groups;
     }
 }
