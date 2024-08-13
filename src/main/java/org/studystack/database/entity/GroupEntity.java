@@ -22,6 +22,11 @@ public class GroupEntity {
      */
     private List<String> usernames;
 
+    /**
+     * The list of all the questions that have been posted by the users of the group.
+     */
+    private List<QuestionEntity> questions;
+
     public String getGroupId() {
         return groupId;
     }
@@ -44,5 +49,13 @@ public class GroupEntity {
 
     public void setUsernames(List<String> usernames) {
         this.usernames = usernames;
+    }
+
+    public List<QuestionEntity> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<QuestionEntity> questions) {
+        this.questions = questions;
     }
 }

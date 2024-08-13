@@ -8,9 +8,11 @@ import org.studystack.database.entity.GroupEntity;
 import org.studystack.database.repository.GroupRepository;
 import org.studystack.model.CreateGroupRequest;
 import org.studystack.model.CreateGroupResponse;
+import org.studystack.model.Question;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @EnableWebMvc
@@ -26,17 +28,20 @@ public class GroupController {
     @RequestMapping(value = "/groups/create", method = RequestMethod.POST)
     public CreateGroupResponse createNewGroup(@RequestBody CreateGroupRequest request){
 
-        // Populating the user entity.
+        // Populating the group entity.
         GroupEntity groupEntity = new GroupEntity();
         BeanUtils.copyProperties(request, groupEntity);
         groupEntity.setGroupId(request.getGroupName() + "::" + LocalDateTime.now().toString());
         groupEntity.setUsernames(new ArrayList<>());
 
-        // Inserting the user record into the mongoDB database.
+        // Setting the questions as an empty questions list for a new group that has been created.
+        groupEntity.setQuestions(new ArrayList<>());
+
+        // Inserting the group record into the mongoDB database.
         GroupRepository groupRepository = new GroupRepository();
         groupRepository.addNewGroupToDatabase(groupEntity);
 
-        //Creating the response indicating the newly created user.
+        //Creating the response indicating the newly created group.
         CreateGroupResponse createGroupResponse = new CreateGroupResponse();
         createGroupResponse.setGroupId(groupEntity.getGroupId());
         return createGroupResponse;
