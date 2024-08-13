@@ -34,6 +34,7 @@ public class UserController {
         BeanUtils.copyProperties(request, userEntity);
         userEntity.set_id(request.getUsername());
         userEntity.setGroups(new ArrayList<>());
+        userEntity.setQuestions(new ArrayList<>());
 
         // Inserting the user record into the mongoDB database.
         UserRepository userRepository = new UserRepository();

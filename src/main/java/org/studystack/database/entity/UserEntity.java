@@ -62,6 +62,11 @@ public class UserEntity {
      */
     private List<String> groups;
 
+    /**
+     * Specifies the list of questions that the user has posted in a group.
+     */
+    private List<QuestionEntity> questions;
+
     public String get_id() {
         return _id;
     }
@@ -148,5 +153,13 @@ public class UserEntity {
 
     public void setGroups(List<String> groups) {
         this.groups = groups;
+    }
+
+    public List<QuestionEntity> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<QuestionEntity> questions) {
+        this.questions = questions;
     }
 }

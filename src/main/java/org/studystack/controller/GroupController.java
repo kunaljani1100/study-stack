@@ -8,11 +8,9 @@ import org.studystack.database.entity.GroupEntity;
 import org.studystack.database.repository.GroupRepository;
 import org.studystack.model.CreateGroupRequest;
 import org.studystack.model.CreateGroupResponse;
-import org.studystack.model.Question;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @EnableWebMvc
