@@ -1,10 +1,13 @@
 package org.studystack.database.entity;
 
-import org.studystack.model.Answer;
-
 import java.util.List;
 
 public class QuestionEntity {
+
+    /**
+     * The identifier used to identify a question asked by a particular user in a group.
+     */
+    private String questionId;
 
     /**
      * The username of a user who has posted the question.
@@ -25,6 +28,14 @@ public class QuestionEntity {
      * The list of all the answers that has been provided for a particular question.
      */
     private List<AnswerEntity> answers;
+
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
 
     public String getUsername() {
         return username;
