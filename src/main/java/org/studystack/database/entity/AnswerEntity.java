@@ -3,14 +3,40 @@ package org.studystack.database.entity;
 public class AnswerEntity {
 
     /**
-     * The username of the user who has answered the question.
+     * The identifier used to identify the answer that the user has responded for a question.
+     */
+    private String answerId;
+
+    /**
+     * The answer provided by the user for a question.
+     */
+    private String answer;
+
+    /**
+     * The username who has answered the question.
      */
     private String username;
 
     /**
-     * The answer that has been given for a particular question.
+     * The question identifier for a question.
      */
-    private String answer;
+    private String questionId;
+
+    public String getAnswerId() {
+        return answerId;
+    }
+
+    public void setAnswerId(String answerId) {
+        this.answerId = answerId;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public String getUsername() {
         return username;
@@ -20,11 +46,11 @@ public class AnswerEntity {
         this.username = username;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getQuestionId() {
+        return questionId;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
     }
 }
