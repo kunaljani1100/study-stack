@@ -11,8 +11,8 @@ Studystack is a collaborative platform that has been created to help users colla
 
 ## APIs developed within this application:
 
-localhost:8080/users/create(POST): Create a new user.
-localhost:8080/groups/create(POST): Create a new group of users.
-localhost:8080/groups/users/create(POST): Add a new user to a group.
-localhost:8080/question(POST): Ask a question in a group.
-localhost:8080/answer(POST): Answer a question that has been asked by a user.
+1. localhost:8080/users/create(POST): Create a new user.
+2. localhost:8080/groups/create(POST): Create a new group of users.
+3. localhost:8080/groups/users/create(POST): Add a new user to a group.
+4. localhost:8080/question(POST): Ask a question in a group.
+5. localhost:8080/answer(POST): Answer a question that has been asked by a user.
