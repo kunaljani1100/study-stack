@@ -16,3 +16,4 @@ Studystack is a collaborative platform that has been created to help users colla
 3. localhost:8080/groups/users/create(POST): Add a new user to a group.
 4. localhost:8080/question(POST): Ask a question in a group.
 5. localhost:8080/answer(POST): Answer a question that has been asked by a user.
+6. locahost:8080/question/answers(POST): Get all the answers for a question.
