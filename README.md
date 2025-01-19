@@ -18,3 +18,4 @@ Studystack is a collaborative platform that has been created to help users colla
 5. localhost:8080/answer(POST): Answer a question that has been asked by a user.
 6. locahost:8080/question/answers(POST): Get all the answers for a question.
 7. localhost:8080/users/authenticate(POST): Check whether valid user credentials have been provided for accessing this application.
+8. localhost:8080/groups/questions/view(POST): View questions asked in a particular group. 
