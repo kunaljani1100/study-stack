@@ -26,7 +26,7 @@ import java.util.List;
 public class GetAnswersForQuestionController {
 
     @RequestMapping(value = "/question/answers", method = RequestMethod.POST)
-    public GetAnswersForQuestionResponse GetAnswersForQuestionResponse(@RequestBody GetAnswersForQuestionRequest getAnswersForQuestionRequest) {
+    public GetAnswersForQuestionResponse getAnswersForQuestionResponse(@RequestBody GetAnswersForQuestionRequest getAnswersForQuestionRequest) {
         DBConnector dbConnector = new DBConnector();
         dbConnector.connect("mongodb://localhost:27017");
         MongoDatabase mongoDatabase = dbConnector.getMongoDatabase();
@@ -34,7 +34,6 @@ public class GetAnswersForQuestionController {
         FindIterable<Answer> answers = answerCollection.find(Filters.eq("questionId", getAnswersForQuestionRequest.getQuestionId()), Answer.class);
         List<Answer> answerList = new ArrayList<>();
         answers.iterator().forEachRemaining(answerList::add);
-        answerList.add(answers.first());
         GetAnswersForQuestionResponse answersForQuestionResponse = new GetAnswersForQuestionResponse();
         answersForQuestionResponse.setAnswers(answerList);
         return answersForQuestionResponse;
