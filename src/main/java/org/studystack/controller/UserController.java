@@ -1,5 +1,11 @@
 package org.studystack.controller;
 
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.studystack.database.connector.DBConnector;
 import org.studystack.database.entity.UserEntity;
 import org.studystack.database.repository.UserRepository;
-import org.studystack.model.CreateUserRequest;
-import org.studystack.model.CreateUserResponse;
+import org.studystack.model.*;
 
 import java.util.ArrayList;
 
@@ -44,5 +50,16 @@ public class UserController {
         CreateUserResponse createUserResponse = new CreateUserResponse();
         createUserResponse.setUsername(userEntity.getUsername());
         return createUserResponse;
+    }
+
+    @RequestMapping(value = "/users/get", method = RequestMethod.POST)
+    public GetUserResponse getUser(@RequestBody GetUserRequest request) {
+        DBConnector dbConnector = new DBConnector();
+        dbConnector.connect("mongodb://localhost:27017");
+        MongoDatabase mongoDatabase = dbConnector.getMongoDatabase();
+        MongoCollection<Document> userCollection = mongoDatabase.getCollection("Users");
+        Bson authenticationFilter = Filters.eq("username", request.getUsername());
+        FindIterable<GetUserResponse> response = userCollection.find(authenticationFilter, GetUserResponse.class);
+        return response.first();
     }
 }

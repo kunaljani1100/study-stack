@@ -24,6 +24,7 @@ public class StudyStackConfig implements WebMvcConfigurer {
                 .addPathPatterns("/groups/create")
                 .addPathPatterns("/users/create")
                 .addPathPatterns("/groups/questions/view")
-                .addPathPatterns("/groups/users/view");
+                .addPathPatterns("/groups/users/view")
+                .addPathPatterns("/users/get");
     }
 }
