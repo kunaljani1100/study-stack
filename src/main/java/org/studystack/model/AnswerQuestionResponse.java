@@ -1,14 +1,9 @@
 package org.studystack.model;
 
+import lombok.Data;
+
+@Data
 public class AnswerQuestionResponse {
 
     private String answerId;
-
-    public String getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(String answerId) {
-        this.answerId = answerId;
-    }
 }

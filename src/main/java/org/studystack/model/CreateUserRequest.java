@@ -1,8 +1,11 @@
 package org.studystack.model;
 
+import lombok.Data;
+
 /**
  * This class specifies the fields that are required to create a new user in the database.
  */
+@Data
 public class CreateUserRequest {
 
     /**
@@ -49,76 +52,4 @@ public class CreateUserRequest {
      * Indicates whether the user prefers to receive email notifications.
      */
     private Boolean emailIndicator;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Boolean getTextingIndicator() {
-        return textingIndicator;
-    }
-
-    public void setTextingIndicator(Boolean textingIndicator) {
-        this.textingIndicator = textingIndicator;
-    }
-
-    public Boolean getEmailIndicator() {
-        return emailIndicator;
-    }
-
-    public void setEmailIndicator(Boolean emailIndicator) {
-        this.emailIndicator = emailIndicator;
-    }
 }

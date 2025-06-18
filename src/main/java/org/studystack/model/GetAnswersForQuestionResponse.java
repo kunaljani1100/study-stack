@@ -1,18 +1,11 @@
 package org.studystack.model;
 
-import org.bson.Document;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class GetAnswersForQuestionResponse {
 
     private List<Answer> answers;
-
-    public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
-    }
 }

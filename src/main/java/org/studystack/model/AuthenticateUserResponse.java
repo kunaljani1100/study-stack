@@ -1,14 +1,9 @@
 package org.studystack.model;
 
+import lombok.Data;
+
+@Data
 public class AuthenticateUserResponse {
 
     private String result;
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
 }

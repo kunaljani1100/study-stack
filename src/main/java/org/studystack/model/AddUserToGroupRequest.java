@@ -1,8 +1,11 @@
 package org.studystack.model;
 
+import lombok.Data;
+
 /**
  * This class models the addition of a user to a group.
  */
+@Data
 public class AddUserToGroupRequest {
 
     /**
@@ -14,20 +17,4 @@ public class AddUserToGroupRequest {
      * The group identifier for the group the user wants to join.
      */
     private String groupId;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
 }

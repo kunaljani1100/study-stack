@@ -1,8 +1,11 @@
 package org.studystack.model;
 
+import lombok.Data;
+
 /**
  * The model for a question that a user has posted.
  */
+@Data
 public class AskQuestionRequest {
 
     /**
@@ -19,28 +22,4 @@ public class AskQuestionRequest {
      * The question the user has posted.
      */
     private String question;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
 }
