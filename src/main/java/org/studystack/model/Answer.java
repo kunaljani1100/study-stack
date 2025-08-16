@@ -9,6 +9,11 @@ import lombok.Data;
 public class Answer {
 
     /**
+     * The question ID for which this answer has been given.
+     */
+    private String questionId;
+
+    /**
      * The username of the user who has answered the question.
      */
     private String username;
