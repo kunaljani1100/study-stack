@@ -11,10 +11,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.studystack.database.connector.DBConnector;
 import org.studystack.model.Answer;
 import org.studystack.model.GetAnswersForQuestionBatchRequest;
-import org.studystack.model.GetAnswersForQuestionBatchResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @EnableWebMvc
@@ -23,7 +24,7 @@ import java.util.List;
 public class GetAnswersForQuestionBatchController {
 
     @RequestMapping(value = "/answers/batch", method = RequestMethod.POST)
-    public GetAnswersForQuestionBatchResponse getAnswersForQuestionBatchResponse(@RequestBody GetAnswersForQuestionBatchRequest request) {
+    public Map<String, List<Answer>> getAnswersForQuestionBatchResponse(@RequestBody GetAnswersForQuestionBatchRequest request) {
         List<String> questionIds = request.getQuestionIds();
         DBConnector dbConnector = new DBConnector();
         dbConnector.connect("mongodb://localhost:27017");
@@ -32,8 +33,14 @@ public class GetAnswersForQuestionBatchController {
         FindIterable<Answer> answers = answerCollection.find(Filters.in("questionId", questionIds), Answer.class);
         List<Answer> answerList = new ArrayList<>();
         answers.iterator().forEachRemaining(answerList::add);
-        GetAnswersForQuestionBatchResponse response = new GetAnswersForQuestionBatchResponse();
-        response.setAnswers(answerList);
-        return response;
+        Map<String, List<Answer>> answerMap = new HashMap<>();
+        for (Answer answer : answerList) {
+            String questionId = answer.getQuestionId();
+            if (!answerMap.containsKey(questionId)) {
+                answerMap.put(questionId, new ArrayList<>());
+            }
+            answerMap.get(questionId).add(answer);
+        }
+        return answerMap;
     }
 }
