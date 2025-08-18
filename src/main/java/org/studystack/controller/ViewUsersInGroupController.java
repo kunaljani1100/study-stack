@@ -23,6 +23,11 @@ import java.util.List;
 @CrossOrigin
 public class ViewUsersInGroupController {
 
+    /**
+     * This method is used to view the users that are a part of a particular group.
+     * @param request The request body submitted by the user client while viewing users in a group.
+     * @return The response with the list of users in the given group.
+     */
     @RequestMapping(value = "/groups/users/view", method = RequestMethod.POST)
     public ViewUsersInGroupResponse viewUsersInGroup(@RequestBody ViewUsersInGroupRequest request) {
         DBConnector dbConnector = new DBConnector();

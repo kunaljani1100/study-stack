@@ -25,6 +25,11 @@ import java.util.List;
 @CrossOrigin
 public class GetAnswersForQuestionController {
 
+    /**
+     * This method is used to get answers for a given question.
+     * @param getAnswersForQuestionRequest The request body submitted by the user client while getting answers for a question.
+     * @return The response with the list of answers for the given question.
+     */
     @RequestMapping(value = "/question/answers", method = RequestMethod.POST)
     public GetAnswersForQuestionResponse getAnswersForQuestionResponse(@RequestBody GetAnswersForQuestionRequest getAnswersForQuestionRequest) {
         DBConnector dbConnector = new DBConnector();

@@ -2,6 +2,11 @@ package org.studystack.database.entity;
 
 import java.util.List;
 
+/**
+ * This class represents a question entity in the StudyStack application.
+ * It contains details about a question posted by a user in a specific group,
+ * including the question text, the user who posted it, and any answers provided.
+ */
 public class QuestionEntity {
 
     /**

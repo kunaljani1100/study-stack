@@ -1,5 +1,10 @@
 package org.studystack.database.entity;
 
+/**
+ * This class represents an answer entity in the StudyStack application.
+ * It contains details about an answer provided by a user for a specific question,
+ * including the answer text, the user who answered, and the question identifier.
+ */
 public class AnswerEntity {
 
     /**

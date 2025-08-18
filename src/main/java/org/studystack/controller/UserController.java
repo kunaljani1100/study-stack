@@ -21,6 +21,10 @@ import org.studystack.model.*;
 
 import java.util.ArrayList;
 
+/**
+ * UserController is responsible for handling user-related requests in the studystack application.
+ * It allows users to create new accounts and retrieve user details based on their username.
+ */
 @Controller
 @EnableWebMvc
 @RestController
@@ -52,6 +56,11 @@ public class UserController {
         return createUserResponse;
     }
 
+    /**
+     * This method is used to get user details based on the username.
+     * @param request The request body submitted by the user client while getting user details.
+     * @return The response with the user details.
+     */
     @RequestMapping(value = "/users/get", method = RequestMethod.POST)
     public GetUserResponse getUser(@RequestBody GetUserRequest request) {
         DBConnector dbConnector = new DBConnector();

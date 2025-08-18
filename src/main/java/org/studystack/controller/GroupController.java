@@ -12,6 +12,10 @@ import org.studystack.model.CreateGroupResponse;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * GroupController is responsible for handling requests related to groups in the studystack application.
+ * It allows users to create new groups.
+ */
 @Controller
 @EnableWebMvc
 @RestController

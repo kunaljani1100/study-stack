@@ -5,6 +5,9 @@ import org.studystack.database.entity.QuestionEntity;
 
 import java.util.List;
 
+/**
+ * The model for a response when retrieving user details.
+ */
 @Data
 public class GetUserResponse {
 

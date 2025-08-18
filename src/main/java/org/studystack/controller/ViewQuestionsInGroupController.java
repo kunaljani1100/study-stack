@@ -14,12 +14,22 @@ import org.studystack.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ViewQuestionsInGroupController is responsible for handling requests to view questions in a specific group.
+ * It retrieves questions associated with a given group ID from the database.
+ */
 @Controller
 @EnableWebMvc
 @RestController
 @CrossOrigin
 public class ViewQuestionsInGroupController {
 
+    /**
+     * Handles the request to view questions in a group.
+     *
+     * @param request The request body containing the group ID for which questions are to be retrieved.
+     * @return A response containing the list of questions in the specified group.
+     */
     @RequestMapping(value = "/groups/questions/view", method = RequestMethod.POST)
     public ViewQuestionsInGroupResponse viewUsersInGroup(@RequestBody ViewQuestionsInGroupRequest request) {
         DBConnector dbConnector = new DBConnector();

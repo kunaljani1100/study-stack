@@ -12,12 +12,21 @@ import org.studystack.model.AnswerQuestionResponse;
 
 import java.util.Random;
 
+/**
+ * AnswerQuestionController is responsible for handling requests related to answering questions in the StudyStack application.
+ * It allows users to submit answers to specific questions.
+ */
 @Controller
 @EnableWebMvc
 @RestController
 @CrossOrigin
 public class AnswerQuestionController {
 
+    /**
+     * This method is used to answer a question.
+     * @param request The request body submitted by the user client while answering a question.
+     * @return The response with the answer ID.
+     */
     @RequestMapping(value = "/answer", method = RequestMethod.POST)
     public AnswerQuestionResponse answer(@RequestBody AnswerQuestionRequest request) {
         AnswerEntity answerEntity = new AnswerEntity();

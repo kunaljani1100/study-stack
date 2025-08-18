@@ -20,12 +20,21 @@ import org.studystack.model.AuthenticateUserRequest;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AuthenticateUserController is responsible for handling user authentication requests.
+ * It checks if the provided username and password match any user in the database.
+ */
 @Controller
 @EnableWebMvc
 @RestController
 @CrossOrigin
 public class AuthenticateUserController {
 
+    /**
+     * Authenticate a user based on the provided username and password.
+     * @param authenticateUserRequest The request body containing the username and password.
+     * @return An AuthenticateUserResponse indicating whether the authentication was successful or not.
+     */
     @RequestMapping("users/authenticate")
     public AuthenticateUserResponse authenticateUserResponse(@RequestBody AuthenticateUserRequest authenticateUserRequest) {
         DBConnector dbConnector = new DBConnector();

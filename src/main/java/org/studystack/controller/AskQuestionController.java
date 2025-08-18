@@ -13,6 +13,10 @@ import org.studystack.model.AskQuestionResponse;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * AskQuestionController is responsible for handling requests related to asking questions in the studystack application.
+ * It allows users to submit questions to a specific group.
+ */
 @Controller
 @EnableWebMvc
 @RestController

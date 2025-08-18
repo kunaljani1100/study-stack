@@ -2,6 +2,9 @@ package org.studystack.model;
 
 import lombok.Data;
 
+/**
+ * The model for a question asked by a user in a group.
+ */
 @Data
 public class Question {
 

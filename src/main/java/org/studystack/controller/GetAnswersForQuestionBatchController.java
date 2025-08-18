@@ -17,12 +17,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class is used to get answers for a batch of questions.
+ */
 @Controller
 @EnableWebMvc
 @RestController
 @CrossOrigin
 public class GetAnswersForQuestionBatchController {
 
+    /**
+     * This method is used to get answers for a batch of questions.
+     * @param request The request body submitted by the user client while getting answers for a batch of questions.
+     * @return A map where the key is the question ID and the value is a list of answers for that question.
+     */
     @RequestMapping(value = "/answers/batch", method = RequestMethod.POST)
     public Map<String, List<Answer>> getAnswersForQuestionBatchResponse(@RequestBody GetAnswersForQuestionBatchRequest request) {
         List<String> questionIds = request.getQuestionIds();

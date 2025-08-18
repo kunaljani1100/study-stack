@@ -8,6 +8,10 @@ import org.studystack.database.repository.UserRepository;
 import org.studystack.model.AddUserToGroupRequest;
 import org.studystack.model.AddUserToGroupResponse;
 
+/**
+ * AddUserToGroupController is responsible for handling requests to add a user to a group in the studystack application.
+ * It checks if the user exists and if the group exists before adding the user to the group.
+ */
 @Controller
 @EnableWebMvc
 @RestController
