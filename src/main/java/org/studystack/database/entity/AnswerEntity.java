@@ -1,10 +1,15 @@
 package org.studystack.database.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * This class represents an answer entity in the StudyStack application.
  * It contains details about an answer provided by a user for a specific question,
  * including the answer text, the user who answered, and the question identifier.
  */
+@Getter
+@Setter
 public class AnswerEntity {
 
     /**
@@ -27,35 +32,8 @@ public class AnswerEntity {
      */
     private String questionId;
 
-    public String getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(String answerId) {
-        this.answerId = answerId;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(String questionId) {
-        this.questionId = questionId;
-    }
+    /**
+     * The accuracy for the answer provided by the user.
+     */
+     private double accuracy;
 }

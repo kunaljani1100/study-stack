@@ -20,6 +20,11 @@ public class AnswerQuestionRequest {
     private String questionId;
 
     /**
+     * The question that the user is answering.
+     */
+    private String question;
+
+    /**
      * The username of the user who is providing the answer.
      */
     private String username;
