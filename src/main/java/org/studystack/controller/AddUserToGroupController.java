@@ -33,7 +33,6 @@ public class AddUserToGroupController {
         if (userRepository.checkIfUserExists(username)) {
             if (groupRepository.checkIfGroupExists(groupId)) {
                 groupRepository.addUserToGroup(groupId, username);
-                userRepository.addGroupForUser(groupId, username);
                 response.setMessage("User added to group.");
             } else {
                 response.setMessage("User found but group not found.");

@@ -36,9 +36,6 @@ public class GroupController {
         groupEntity.setGroupId(request.getGroupName() + "::" + LocalDateTime.now().toString());
         groupEntity.setUsernames(new ArrayList<>());
 
-        // Setting the questions as an empty questions list for a new group that has been created.
-        groupEntity.setQuestions(new ArrayList<>());
-
         // Inserting the group record into the mongoDB database.
         GroupRepository groupRepository = new GroupRepository();
         groupRepository.addNewGroupToDatabase(groupEntity);
