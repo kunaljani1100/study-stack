@@ -22,4 +22,9 @@ public class Answer {
      * The answer that has been given for a particular question.
      */
     private String answer;
+
+    /**
+     * The accuracy of the answer provided by the user.
+     */
+    private double accuracy;
 }

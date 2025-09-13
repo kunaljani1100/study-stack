@@ -2,6 +2,8 @@ package org.studystack.controller;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -9,7 +11,9 @@ import org.studystack.database.connector.DBConnector;
 import org.studystack.database.entity.AnswerEntity;
 import org.studystack.model.AnswerQuestionRequest;
 import org.studystack.model.AnswerQuestionResponse;
+import com.theokanning.openai.service.OpenAiService;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -35,6 +39,7 @@ public class AnswerQuestionController {
         answerEntity.setUsername(request.getUsername());
         answerEntity.setAnswer(request.getAnswer());
         answerEntity.setQuestionId(request.getQuestionId());
+        answerEntity.setAccuracy(getAccuracy(request.getQuestion(), request.getAnswer()));
 
         DBConnector dbConnector = new DBConnector();
         dbConnector.connect("mongodb://localhost:27017");
@@ -45,5 +50,30 @@ public class AnswerQuestionController {
         AnswerQuestionResponse answerQuestionResponse = new AnswerQuestionResponse();
         answerQuestionResponse.setAnswerId(answerEntity.getAnswerId());
         return answerQuestionResponse;
+    }
+
+    private int getAccuracyWithGemini(String question, String answer) {
+        return new Random().nextInt(101); // Returns a random accuracy score between 0 and 100
+    }
+
+    private int getAccuracy(String question, String answer) {
+//        String apiKey = "your_api_key";
+//        OpenAiService service = new OpenAiService(apiKey);
+//        ChatMessage userMessage = new ChatMessage();
+//        userMessage.setRole("user");
+//        userMessage.setContent("Question: "+ question +" Answer: "+ answer +" Can you please generate an accuracy score from 0 to 100 for this question and answer? The answer should be only an integer and should contain no other text.");
+//        ChatCompletionRequest request = ChatCompletionRequest.builder()
+//                .model("gpt-3.5-turbo")
+//                .messages(List.of(userMessage))
+//                .build();
+//
+//        String response = service.createChatCompletion(request)
+//                .getChoices()
+//                .get(0)
+//                .getMessage()
+//                .getContent();
+
+        Random random = new Random();
+        return random.nextInt(101);
     }
 }
