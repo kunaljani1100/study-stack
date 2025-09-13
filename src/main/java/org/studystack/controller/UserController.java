@@ -67,6 +67,13 @@ public class UserController {
         MongoCollection<Document> userCollection = mongoDatabase.getCollection("Users");
         Bson authenticationFilter = Filters.eq("username", request.getUsername());
         FindIterable<GetUserResponse> response = userCollection.find(authenticationFilter, GetUserResponse.class);
-        return response.first();
+        MongoCollection<Document> groupCollection = mongoDatabase.getCollection("Groups");
+        FindIterable<Document> groups = groupCollection.find(Filters.in("usernames", request.getUsername()));
+        GetUserResponse getUserResponse = response.first();
+        getUserResponse.setGroups(new ArrayList<>());
+        for (Document group : groups) {
+            getUserResponse.getGroups().add(group.getString("groupId"));
+        }
+        return getUserResponse;
     }
 }
