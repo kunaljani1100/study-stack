@@ -48,6 +48,7 @@ public class AnswerQuestionController {
         mongoCollection.insertOne(answerEntity);
 
         AnswerQuestionResponse answerQuestionResponse = new AnswerQuestionResponse();
+        answerQuestionResponse.setAccuracy(answerEntity.getAccuracy());
         answerQuestionResponse.setAnswerId(answerEntity.getAnswerId());
         return answerQuestionResponse;
     }
